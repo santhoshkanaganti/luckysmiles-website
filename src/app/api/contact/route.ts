@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: fromEmail,
       to: contactEmail,
-      replyTo: email,
+      reply_to: email,
       subject: `New Appointment Request – ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f9fafb; padding: 32px;">
