@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; }
+}
+
+@layer components {
+  .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  /* Nav dropdown */
+  .nav-item:hover .nav-dropdown { display: block; }
+
+  /* Hero animation */
+  .animate-fadeup {
+    animation: fadeUp 0.8s ease both;
+  }
+  .animate-fadeup-delay {
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .animate-fadeup-delay2 {
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Pulse circle */
+  .animate-pulse-slow {
+    animation: pulseSlow 4s ease-in-out infinite;
+  }
+  @keyframes pulseSlow {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50%       { transform: translateY(-50%) scale(1.06); }
+  }
+
+  /* Card hover line */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #1a8fa0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+}
